@@ -6,9 +6,101 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+		<!-- content gaat vanaf hier -->
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<!-- START-COMP: LG-Linkbar -->
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="index.html">Challenge</a>
+					</nav>
+					<div class="mdl-layout-spacer"></div>
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="#">Highscore</a>
+						<a class="mdl-navigation__link" href="#">Login</a>
+					</nav>
+				</div>
+			</header>
+			<!-- END-COMP: LG-Linkbar -->
 
+			<!-- START-COMP: SM-Linkbar -->
+			<div class="mdl-layout__drawer mdl-layout--small-screen-only">
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="index.html">Challenge</a>
+					<a class="mdl-navigation__link" href="#">Highscore</a>
+					<a class="mdl-navigation__link" href="#">Login</a>
+				</nav>
+			</div>
+			<!-- END-COMP: SM-Linkbar -->
+
+			<!-- START-COMP: Title -->
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<div class="mdl-layout-spacer"></div>
+					<h3 class="header_text">Challenge</h3>
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+			<!-- END-COMP: Title -->
+
+			<!-- START-GRID: SM-Linkbar -->
+			<div class="content-grid mdl-grid">
+				<div class="mdl-layout-spacer"></div>
+				<div class="mdl-cell mdl-cell--12-col">
+
+					<!-- card 1 -->
+					<div class="demo-card-event mdl-card mdl-shadow--4dp">
+						<div class="mdl-card__title dutch">
+							<h2 class="mdl-card__title-text">Dutch Culture</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Learn the basics of duch culture.
+						</div>
+						<div class="mdl-card__actions mdl-card__border">
+							<div class="mdl-layout-spacer"></div>
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="pagina2.html">Let's go</a>
+						</div>
+					</div>
+					<!-- End:  card 1 -->
+					<br />
+					<!-- card 2 -->
+					<div class="demo-card-event mdl-card mdl-shadow--4dp">
+						<div class="mdl-card__title music">
+							<h2 class="mdl-card__title-text">Eurovision Songs</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Sing along quiz
+						</div>
+						<div class="mdl-card__actions mdl-card__border">
+							<div class="mdl-layout-spacer"></div>
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="pagina2.html">Let's go</a>
+						</div>
+					</div>
+					<!-- End:  card 2 -->
+					<br />
+					<!-- card 3 -->
+					<div class="demo-card-event mdl-card mdl-shadow--4dp">
+						<div class="mdl-card__title hamburger">
+							<h2 class="mdl-card__title-text">Eat and Drink</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Bon appetit
+						</div>
+						<div class="mdl-card__actions mdl-card__border">
+							<div class="mdl-layout-spacer"></div>
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="pagina2.html">Let's go</a>
+						</div>
+					</div>
+					<!-- End:  card 3 -->
+
+				</div>
+				<div class="mdl-layout-spacer"></div>
+			</div>
+			<!-- END-COMP: SM-Linkbar -->
+		</div>
 	</body>
 </html>

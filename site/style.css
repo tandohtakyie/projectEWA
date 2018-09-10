@@ -1,0 +1,56 @@
+html{
+	box-sizing: border-box;
+}
+*,*:before,*:after{
+	box-sizing: inherit;
+}
+.mdl-grid{
+	margin: 0 auto;
+}
+.demo-card-event>.dutch{
+	color: #fff;
+	background: url('../images/tulip.jpg') center left 5% no-repeat #46b6ac;
+	text-align: center;
+}
+
+.demo-card-event>.music{
+	color: #fff;
+	background: url('../images/tulip.jpg') center left 5% no-repeat #46b6ac;
+	text-align: center;
+}
+
+.demo-card-event>.hamburger{
+	color: #fff;
+	background: url('../images/tulip.jpg') center left 5% no-repeat #46b6ac;
+	text-align: center;
+}
+
+.mdl-card__title-text{
+/*	margin-left: 70px; */
+}
+
+.mdl-card__actions{
+	display: flex;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+.mdl-layout__header-row>.header_text{
+	font-weight: 200;
+	text-align: left;
+}
+
+.demo-card-event.mdl-card{
+	width: 290px;
+	min-height: 0;
+}
+@media only screen and (min-width:480px){
+	.demo-card-event.mdl-card{
+		width: 390px;
+	}
+}
+@media only screen and (min-width:1080px){
+	.demo-card-event.mdl-card{
+		width: 490px;
+	}
+}
