@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<!-- content gaat vanaf hier -->
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<!-- START-COMP: LG-Linkbar -->
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="index.html">Challenge</a>
+					</nav>
+					<div class="mdl-layout-spacer"></div>
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<a class="mdl-navigation__link" href="#">Highscore</a>
+						<a class="mdl-navigation__link" href="#">Login</a>
+					</nav>
+				</div>
+			</header>
+			<!-- END-COMP: LG-Linkbar -->
+
+			<!-- START-COMP: SM-Linkbar -->
+			<div class="mdl-layout__drawer mdl-layout--small-screen-only">
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="index.html">Challenge</a>
+					<a class="mdl-navigation__link" href="#">Highscore</a>
+					<a class="mdl-navigation__link" href="#">Login</a>
+				</nav>
+			</div>
+			<!-- END-COMP: SM-Linkbar -->
+
+			<!-- START-COMP: Title -->
+			<header class="mdl-layout__header mdl-layout--small-screen-only">
+				<div class="mdl-layout__header-row">
+					<div class="mdl-layout-spacer"></div>
+					<h3 class="header_text">Dutch Culture</h3>
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+			<!-- END-COMP: Title -->
+
+			<!-- START-GRID: Content -->
+			<div class="content-grid mdl-grid">
+				<div class="mdl-layout-spacer mdl-layout--small-screen-only"></div>
+				<div class="mdl-cell mdl-cell--4-col mdl-layout--large-screen-only">
+					<ul class="stepper linear" style="list-style-type: none;">
+						<li class="step active">
+							<div class="step-title waves-effect">blabla</div>
+						</li>
+						<li class="step active">
+							<div class="step-title waves-effect">blabla</div>
+						</li>
+						<li class="step active">
+							<div class="step-title waves-effect">blabla</div>
+						</li>
+						<li class="step active">
+							<div class="step-title waves-effect">blabla</div>
+						</li>
+						<li class="step active">
+							<div class="step-title waves-effect">blabla</div>
+						</li>
+					</ul>
+				</div>
+				<div class="mdl-cell mdl-cell--8-col">
+					<div class="mdl-layout--large-screen-only">
+						<h2 style="text-align: center;">Dutch Culture</h2>
+					</div>
+					<hr size="1">
+					<h4 style="text-align: center;">Wat is de gemiddlelde doorsnee van de Nederlandse pannekoek?</h4>
+					<hr size="1">
+					<ul class="mdl-list">
+						<li class="mdl-list__item">
+							<span class="mdl-list__item-secondary-action">
+								<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1" style="margin-left: 20px;margin-right: 50px;">
+									<input type="radio" id="list-option-1" name="options" class="mdl-radio__button" value="18">
+								</label>
+							</span>
+							<span class="mdl-list__item-primary-content">
+								18 cm
+							</span>
+						</li>
+						<li class="mdl-list__item">
+							<span class="mdl-list__item-secondary-action">
+								<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-2" style="margin-left: 20px;margin-right: 50px;">
+									<input type="radio" id="list-option-2" name="options" class="mdl-radio__button" value="22">
+								</label>
+							</span>
+							<span class="mdl-list__item-primary-content">
+								22 cm
+							</span>
+						</li>
+						<li class="mdl-list__item">
+							<span class="mdl-list__item-secondary-action">
+								<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-3" style="margin-left: 20px;margin-right: 50px;">
+									<input type="radio" id="list-option-3" name="options" class="mdl-radio__button" value="33">
+								</label>
+							</span>
+							<span class="mdl-list__item-primary-content">
+								33 cm
+							</span>
+						</li>
+						<li class="mdl-list__item">
+							<span class="mdl-list__item-secondary-action">
+								<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-4" style="margin-left: 20px;margin-right: 50px;">
+									<input type="radio" id="list-option-4" name="options" class="mdl-radio__button" value="50">
+								</label>
+							</span>
+							<span class="mdl-list__item-primary-content">
+								50 cm
+							</span>
+						</li>
+					</ul>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="float: right;">
+						Volgende
+					</button>
+				</div>
+				<div class="mdl-layout-spacer mdl-layout--small-screen-only"></div>
+			</div>
+			<!-- END-COMP: Content -->
+		</div>
+	</body>
+</html>
