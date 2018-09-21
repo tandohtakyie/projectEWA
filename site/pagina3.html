@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Web Applications</title>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel='stylesheet prefetch' href='http://storage.googleapis.com/code.getmdl.io/1.3.0/material.teal-red.min.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel='stylesheet' href='../css/style.css'>
+
+  <script type="text/javascript" src="../json/questions.json"></script>
+  <script defer>
+    var questions = JSON.parse(questions);
+    var qId = 0;
+    // see:https://developer.mozilla.org/en/docs/Web/API/Window/sessionStorage
+    sessionStorage.setItem('score', 0);
+
+    function nextQuestion() {
+      updateScore();
+
+      //check if it's the last question
+      if (qId == questions.length) {
+        window.location.href = "score.html";
+      }
+
+      var questionContainer = document.getElementById("question");
+      questionContainer.innerHTML = '<h4 style="text-align:center;">' + questions[qId].question + '</h4>';
+
+      var stepperContainer = document.getElementById("stepperContainer");
+      var stepperHTML = '<div class="step-title waves-effect">STEPPER_TITLE</div>';
+
+      var answerContainer = document.getElementById("answerContainer");
+      var templateHTML =
+        '<li class="mdl-list__item"><span class="mdl-list__item-secondary-action"><label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-FOR_RADIO_ID" style="margin-left: 20px;margin-right: 50px;"><input type="radio" id="list-option-RADIO_ID" class="mdl-radio__button" name="options" value="RADIO_VALUE" /></label></span><span class="mdl-list__item-primary-content">ANSWER</span></li>'
+
+
+      stepperContainer.innerHTML = '';
+
+      for (var i = 0; i < questions.length; i++) {
+        var stepperBlock = document.createElement("li");
+        if (questions[i].question == questions[qId].question) {
+
+          stepperBlock.className = "step active";
+        } else {
+          stepperBlock.className = "step";
+        }
+
+        var stepHTML = stepperHTML.replace("STEPPER_TITLE", questions[i].title);
+        stepperBlock.innerHTML = stepHTML;
+        stepperContainer.appendChild(stepperBlock);
+      }
+
+      for (var i = 0; i < questions[qId].answers.length; i++) {
+        var listBlock = document.createElement("li");
+        listBlock.className = "mdl-list__item";
+        listBlock.setAttribute("id", qId + "" + i);
+        var answerText = questions[qId].answers[i].text;
+        var correct = questions[qId].answers[i].correct;
+
+        var radioId = i + 1;
+        var tempHTML = templateHTML.replace("ANSWER", answerText);
+        var tempHTML = tempHTML.replace("FOR_RADIO_ID", radioId);
+        var tempHTML = tempHTML.replace("RADIO_ID", radioId);
+        var tempHTML = tempHTML.replace("RADIO_VALUE", correct);
+        var prevQid = qId - 1;
+        listBlock.innerHTML = tempHTML;
+
+        if (qId > 0) {
+          //remove previous answers
+          var id = prevQid + "" + i;
+          var childToBeRemoved = document.getElementById(id);
+          answerContainer.removeChild(childToBeRemoved);
+
+
+        }
+        answerContainer.appendChild(listBlock);
+        //see: https://getmdl.io/started/index.html#dynamic why we do this call.
+        componentHandler.upgradeDom();
+      }
+      qId++;
+    }
+
+    function updateScore() {
+      //get everything that is an input element
+      var inputElements = document.getElementsByTagName('input');
+      var correct;
+      for (var i = 0; i < inputElements.length; i++) {
+        //check if inputtype is radio and if so check if it has been selected
+        if (inputElements[i].type === 'radio' && inputElements[i].checked) {
+          correct = inputElements[i].value; // can only be true or false;
+        }
+
+      }
+      if (correct) {
+        var score = window.sessionStorage.getItem("score");
+        score++;
+        window.sessionStorage.setItem("score", score);
+      }
+    }
+  </script>
+
+
+
+  <!--Import Materialize-Stepper CSS -->
+  <link rel="stylesheet" href="../css/materialize-stepper.css">
+  <!-- jQuery -->
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Materializecss compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <!--Import Materialize-Stepper JavaScript -->
+  <script src="../js/materialize-stepper.min.js"></script>
+</head>
+
+<body onload="nextQuestion()">
+  <!-- Menu setup -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="index.html">Challenge</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="#">Highscore</a>
+          <a class="mdl-navigation__link" href="#">Login</a>
+        </nav>
+      </div>
+    </header>
+    <!-- mobile view -->
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="index.html">Challenge</a>
+        <a class="mdl-navigation__link" href="#">Highscore</a>
+        <a class="mdl-navigation__link" href="#">Login</a>
+      </nav>
+    </div>
+    <!-- Content gaat vanaf hier -->
+    <div class="content-grid mdl-grid">
+      <!-- Stepper menu for large screen view only -->
+      <div class="mdl-cell mdl-cell--4-col  mdl-layout--large-screen-only">
+
+        <ul class="stepper linear" style="list-style-type: none;">
+
+          <div id="stepperContainer"></div>
+
+
+        </ul>
+        <!--End of the stepper menu -->
+      </div>
+      <div class="mdl-cell mdl-cell--8-col">
+        <h2 style="text-align:center;">Dutch Culture</h2>
+        <hr size="1">
+        <div id="question"></div>
+
+        <hr size="1">
+        <ul class="mdl-list">
+
+          <div id="answerContainer"></div>
+
+
+        </ul>
+        <button onclick="nextQuestion();" style="float:right" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Volgende
+          </button>
+      </div>
+      <div class="mdl-layout-spacer"></div>
+      <!-- end of mdl layout -->
+    </div>
+    <script src='http://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js'></script>
+    <script defer>
+      $(function() {
+        $('.stepper').activateStepper({
+          linearStepsNavigation: false
+        });
+      });
+    </script>
+</body>
+
+</html>
